@@ -44,7 +44,7 @@ function changeColor() {
     let liElements = document.querySelectorAll("#dog-breeds li");
     liElements.forEach(element => {
         element.addEventListener("click", (event) => {
-            element.style.color = "orange";
+            element.style.color = "red";
         });
     });
 };
@@ -62,3 +62,14 @@ function filterBreeds() {
         });
     });
 }
+
+function selectBreedsStartingWith(letter) {
+    updateBreedList(breeds.filter(breed => breed.startsWith(letter)));
+  }
+  
+  function addBreedSelectListener() {
+    let breedDropdown = document.querySelector('#breed-dropdown');
+    breedDropdown.addEventListener('change', function (event) {
+      selectBreedsStartingWith(event.target.value);
+    });
+  }
